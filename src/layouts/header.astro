@@ -1,0 +1,26 @@
+---
+import NavMenu from "../components/NavMenu";
+import ThemeToggle from "../components/ThemeToggle";
+---
+
+<header
+  class="fixed top-0 w-full bg-background/80 backdrop-blur-md border-b border-border z-50"
+>
+  <nav class="container mx-auto px-4 py-4">
+    <div class="flex items-center justify-between">
+      <a href="/" class="text-2xl font-bold text-primary">傑尼安</a>
+
+      <!-- Desktop nav + Theme toggle -->
+      <div class="hidden md:flex items-center gap-x-8">
+        <NavMenu client:load />
+        <ThemeToggle client:load />
+      </div>
+
+      <!-- Mobile menu button + Theme toggle -->
+      <div class="md:hidden flex items-center space-x-2">
+        <ThemeToggle client:load />
+        <NavMenu mobile client:load />
+      </div>
+    </div>
+  </nav>
+</header>

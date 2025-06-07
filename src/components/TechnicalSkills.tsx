@@ -1,3 +1,25 @@
+import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
+
+import ReactIcon from "./ui/icons/react";
+import AngularIcon from "./ui/icons/angular";
+import JavaScriptIcon from "./ui/icons/javascript";
+import TypeScriptIcon from "./ui/icons/typescript";
+import TailwindCssIcon from "./ui/icons/tailwindcss";
+import RxJSIcon from "./ui/icons/rxjs";
+import HTMLIcon from "./ui/icons/html";
+import CSSIcon from "./ui/icons/css";
+
+const frontendSkills = [
+  { name: "React", icon: ReactIcon },
+  { name: "Angular", icon: AngularIcon },
+  { name: "JavaScript", icon: JavaScriptIcon },
+  { name: "TypeScript", icon: TypeScriptIcon },
+  { name: "TailwindCSS", icon: TailwindCssIcon },
+  { name: "RxJS", icon: RxJSIcon },
+  { name: "HTML5", icon: HTMLIcon },
+  { name: "CSS3", icon: CSSIcon },
+];
+
 export default function TechnicalSkills() {
   return (
     <section className="mb-16">
@@ -5,14 +27,26 @@ export default function TechnicalSkills() {
         Technical Skills
       </h2>
       <div className="space-y-8">
-        <div className="p-6 border border-border rounded-lg">
-          <div className="flex items-center gap-4 mb-6">
-            <h3 className="text-2xl font-bold text-primary  ">
+        <Card className="animate-fade-in">
+          <CardHeader>
+            <CardTitle className="text-xl text-left">
               Frontend Development
-            </h3>
-          </div>
-          <div className="flex flex-wrap gap-2">React</div>
-        </div>
+            </CardTitle>
+          </CardHeader>
+          <CardContent className="flex flex-wrap gap-4">
+            {frontendSkills.map((Item) => (
+              <div
+                key={Item.name}
+                className="rounded-full  border border-border gap-x-2 flex py-2 px-3 items-center "
+              >
+                <Item.icon className="w-4 h-4" />
+                <span className="text-xs text-primary font-semibold">
+                  {Item.name}
+                </span>
+              </div>
+            ))}
+          </CardContent>
+        </Card>
       </div>
     </section>
   );

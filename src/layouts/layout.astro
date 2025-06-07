@@ -1,5 +1,6 @@
 ---
 import "../styles/global.css";
+import Header from "./header/Header";
 const { content } = Astro.props;
 ---
 
@@ -12,6 +13,7 @@ const { content } = Astro.props;
   </head>
   <body>
     <div class="min-h-screen bg-background">
+      <Header client:visible />
       <slot />
     </div>
   </body>

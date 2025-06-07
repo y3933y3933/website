@@ -1,4 +1,4 @@
-@import 'tailwindcss';
+@import "tailwindcss";
 @import "tw-animate-css";
 
 @custom-variant dark (&:where(.dark, .dark *));
@@ -32,6 +32,18 @@
   --color-sidebar-accent-foreground: oklch(10% 0.01 240);
   --color-sidebar-border: oklch(91% 0.01 220);
   --color-sidebar-ring: oklch(59.8% 0.1 217.2);
+
+  --animate-fade-in: fadeIn 0.5s ease-in-out;
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
 }
 
 @layer base {
@@ -65,5 +77,3 @@
     --color-sidebar-ring: oklch(59.8% 0.1 217.2);
   }
 }
-
-

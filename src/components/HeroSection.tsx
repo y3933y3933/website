@@ -1,5 +1,5 @@
 import { SOCIAL } from "@/const";
-import { ArrowRight, Github, Linkedin, Mail } from "lucide-react";
+import { Github, Linkedin, Mail } from "lucide-react";
 
 export default function HeroSection() {
   return (
@@ -71,8 +71,8 @@ export default function HeroSection() {
             <div className="relative">
               <div className="w-80 h-80 rounded-full bg-gradient-to-br from-primary/20 to-blue-600/20 p-2">
                 <img
-                  src="https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?auto=format&fit=crop&w=800&h=800"
-                  alt="John Doe"
+                  src="./cat.png"
+                  alt="Joanne Lin"
                   className="w-full h-full object-cover rounded-full border-4 border-background shadow-2xl"
                 />
               </div>

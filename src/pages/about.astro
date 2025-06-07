@@ -1,7 +1,24 @@
 ---
+import TechnicalSkills from "@/components/TechnicalSkills";
 import Layout from "../layouts/layout.astro";
+import PersonalStory from "@/components/PersonalStory";
+import { Image } from "astro:assets";
+import Cat from "../assets/images/cat.png";
 ---
 
 <Layout>
-  <div>About</div>
+  <div class="text-center mb-12 animate-fade-in">
+    <h1 class="text-4xl font-bold mb-4 text-primary">關於我</h1>
+
+    <section class="mb-16">
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <PersonalStory />
+        <div class="flex justify-center animate-scale-in">
+          <Image src={Cat} alt="cat" class="rounded-lg w-full max-w-md" />
+        </div>
+      </div>
+    </section>
+
+    <TechnicalSkills />
+  </div>
 </Layout>

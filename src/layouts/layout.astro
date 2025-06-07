@@ -40,7 +40,9 @@ const { content } = Astro.props;
   <body>
     <div class="min-h-screen bg-background">
       <Header />
-      <slot />
+      <main class="pt-32 pb-20 px-4 container mx-auto max-w-6xl">
+        <slot />
+      </main>
     </div>
   </body>
 </html>

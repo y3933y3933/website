@@ -15,3 +15,11 @@ export const SOCIAL: SocialMap = {
   linkedin: "https://www.linkedin.com/in/hamster3933/",
   email: "mailto:y3933y3933@gmail.com",
 };
+
+export const HASHTAGS: string[] = [
+  "雙子座",
+  "INFP",
+  "梗圖愛好者",
+  "羽球",
+  "Game",
+];

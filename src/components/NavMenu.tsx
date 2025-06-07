@@ -4,6 +4,7 @@ import clsx from "clsx";
 
 const navItems = [
   { name: "Home", path: "/" },
+  { name: "Work Experience", path: "/work-experience" },
   { name: "About", path: "/about" },
 ];
 

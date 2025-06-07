@@ -6,7 +6,7 @@ export default function PersonalStory() {
       <div className="space-y-4 text-muted-foreground">
         <p className="text-left">
           嗨，我是傑尼安，一名前端工程師，寫過 React 和 Angular，喜歡 Tailwind
-          CSS 勝過於 Styled Component，不能活在沒有 TypeScript 的 JS 世界。
+          CSS 勝過於 Styled Component，不能活在沒有 TypeScript 的世界。
         </p>
         <p className="text-left">
           畢業於台大心理系，大四修了兩門程式設計相關的課：《Java 程式設計》與

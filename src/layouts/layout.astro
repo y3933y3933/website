@@ -1,41 +1,19 @@
 ---
 import "../styles/global.css";
+import Head from "./head.astro";
 import Header from "./header.astro";
-const { content } = Astro.props;
+
+type Props = {
+  title: string;
+  description: string;
+};
+
+const { title, description } = Astro.props;
 ---
 
 <html lang="zh-TW">
   <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <title>Hello</title>
-    <script is:inline>
-      const getThemePreference = () => {
-        if (
-          typeof localStorage !== "undefined" &&
-          localStorage.getItem("theme")
-        ) {
-          return localStorage.getItem("theme");
-        }
-        return window.matchMedia("(prefers-color-scheme: dark)").matches
-          ? "dark"
-          : "light";
-      };
-      const isDark = getThemePreference() === "dark";
-      document.documentElement.classList[isDark ? "add" : "remove"]("dark");
-
-      if (typeof localStorage !== "undefined") {
-        const observer = new MutationObserver(() => {
-          const isDark = document.documentElement.classList.contains("dark");
-          localStorage.setItem("theme", isDark ? "dark" : "light");
-        });
-        observer.observe(document.documentElement, {
-          attributes: true,
-          attributeFilter: ["class"],
-        });
-      }
-    </script>
+    <Head title={`${title} | 傑尼安`} />
   </head>
   <body>
     <div class="min-h-screen bg-background">

@@ -16,10 +16,6 @@ export default function PersonalStory() {
           比起自己埋頭苦幹寫 code
           ，更喜歡成為團隊貢獻者，認為溝通與理解是比技術更重要的能力，期許自己能成為技術與溝通兼具的工程師。
         </p>
-        <p className="text-left">
-          蓋洛普測驗的 Top 5
-          依序是：Developer、Positivity、Adaptability、Empathy、Relator
-        </p>
 
         <div className="flex flex-wrap gap-2">
           {HASHTAGS.map((tag) => (

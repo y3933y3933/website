@@ -43,7 +43,7 @@ export default function NavMenu({ mobile = false }: Props) {
 
   return (
     <>
-      <button className="p-2" onClick={() => setIsOpen(!isOpen)}>
+      <button className="p-2 text-primary" onClick={() => setIsOpen(!isOpen)}>
         {isOpen ? <X size={24} /> : <Menu size={24} />}
       </button>
 

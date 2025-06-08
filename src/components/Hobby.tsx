@@ -33,7 +33,9 @@ const hobbies = [
 export default function Hobby() {
   return (
     <section>
-      <h2 className="text-3xl font-bold text-center mb-12">Beyond Code</h2>
+      <h2 className="text-3xl font-bold text-center mb-12 text-primary">
+        Beyond Code
+      </h2>
       <div className="grid md:grid-cols-2 gap-8">
         {hobbies.map((hobby, index) => (
           <Card

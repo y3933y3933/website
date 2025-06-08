@@ -1,5 +1,6 @@
 import { SOCIAL } from "@/const";
-import { Github, Linkedin, Mail } from "lucide-react";
+import { ArrowRight, Github, Linkedin, Mail } from "lucide-react";
+import { Button } from "./ui/button";
 
 export default function HeroSection() {
   return (
@@ -23,12 +24,13 @@ export default function HeroSection() {
       </p>
 
       <div className="flex flex-wrap gap-4">
-        {/* <Link to="/portfolio">
-                <Button size="lg" className="group">
-                  View My Work
-                  <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-                </Button>
-              </Link>
+        <a href="/work-experience">
+          <Button size="lg" className="group">
+            View My Work
+            <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+          </Button>
+        </a>
+        {/* 
               <Link to="/contact">
                 <Button variant="outline" size="lg">
                   Get In Touch

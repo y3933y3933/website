@@ -19,7 +19,7 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/too
 vim ~/.zshrc
 ```
 
-找到 `ZSH_THEME="<theme>"`，將 `theme`替換成想要的[主題](https://github.com/ohmyzsh/ohmyzsh/wiki/Themes)
+找到 `ZSH_THEME="<theme>"`，將 theme 替換成想要的[主題](https://github.com/ohmyzsh/ohmyzsh/wiki/Themes)
 
 個人使用 [pure](https://github.com/sindresorhus/pure) 主題，依照官方文件安裝即可。
 
@@ -93,14 +93,16 @@ brew install git
 
 ### 設定 code . 快捷鍵
 
-打開 Vscode，按下 <kbd>Cmd</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd>，選擇 「shell command，選擇 Install code」，之後就可以在終端機中直接用 `code .` 開啟 Vscode。
+打開 Vscode，按下 `Cmd + Shift + P`，選擇 「shell command，選擇 Install code」，之後就可以在終端機中直接用 `code .` 開啟 Vscode。
 
 ### 推薦的擴充套件
 
-- [Winter is Coming theme](https://marketplace.visualstudio.com/items?itemName=johnpapa.winteriscoming)：Vscode 主題。
-- [Material Icon Theme](https://marketplace.visualstudio.com/items?itemName=PKief.material-icon-theme)：Icon 主題。
-- [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)：排版工具
-- [Code Spell Checker](https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker)：檢查英文拼字。
-- [Auto Rename Tag](https://marketplace.visualstudio.com/items?itemName=formulahendry.auto-rename-tag)：自動重新命名 HTML 標籤。
-- [GitLens](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens): 快速 Git blame 神器。
-- [Git Graph](https://marketplace.cursorapi.com/items?itemName=mhutchie.git-graph): Git 線圖視覺化好幫手。
+| 擴充套件名稱                                                                                                    | 說明                   |
+| --------------------------------------------------------------------------------------------------------------- | ---------------------- |
+| [Winter is Coming theme](https://marketplace.visualstudio.com/items?itemName=johnpapa.winteriscoming)           | VSCode 主題            |
+| [Material Icon Theme](https://marketplace.visualstudio.com/items?itemName=PKief.material-icon-theme)            | Icon 主題              |
+| [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)                          | 排版工具               |
+| [Code Spell Checker](https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker) | 檢查英文拼字           |
+| [Auto Rename Tag](https://marketplace.visualstudio.com/items?itemName=formulahendry.auto-rename-tag)            | 自動重新命名 HTML 標籤 |
+| [GitLens](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens)                                  | 快速 Git blame 神器    |
+| [Git Graph](https://marketplace.visualstudio.com/items?itemName=mhutchie.git-graph)                             | Git 線圖視覺化好幫手   |

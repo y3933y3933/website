@@ -20,29 +20,31 @@ const { Content } = await render(post);
 ---
 
 <Layout title={post.data.title} description={post.data.description}>
-  <a
-    class="inline-flex
+  <div class="max-w-[760px] mx-auto">
+    <a
+      class="inline-flex
     items-center
     text-muted-foreground
     hover:text-primary
     transition-colors
     mb-8"
-    href="/blog"
-  >
-    <ArrowLeft className="mr-2 h-4 w-4" />
-    Back To Blog
-  </a>
+      href="/blog"
+    >
+      <ArrowLeft className="mr-2 h-4 w-4" />
+      Back To Blog
+    </a>
 
-  <article class="animate-fade-in">
-    <BlogDetailHeader
-      tags={post.data.tags}
-      title={post.data.title}
-      description={post.data.description}
-      pubDate={post.data.pubDate}
-    />
-    <Prose>
-      <Content />
-    </Prose>
-  </article>
-  <BackToTop client:load />
+    <article class="animate-fade-in">
+      <BlogDetailHeader
+        tags={post.data.tags}
+        title={post.data.title}
+        description={post.data.description}
+        pubDate={post.data.pubDate}
+      />
+      <Prose>
+        <Content />
+      </Prose>
+    </article>
+    <BackToTop client:load />
+  </div>
 </Layout>

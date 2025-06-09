@@ -1,0 +1,50 @@
+---
+import BlogDetailHeader from "@/components/BlogDetailHeader";
+import Layout from "@/layouts/layout.astro";
+import { getCollection, render } from "astro:content";
+import { ArrowLeft } from "lucide-react";
+
+export async function getStaticPaths() {
+  const posts = await getCollection("posts");
+
+  return posts.map((post) => ({
+    params: { slug: post.id },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+---
+
+<Layout title={post.data.title} description={post.data.description}>
+  <a
+    class="inline-flex
+    items-center
+    text-muted-foreground
+    hover:text-primary
+    transition-colors
+    mb-8"
+    href="/blog"
+  >
+    <ArrowLeft className="mr-2 h-4 w-4" />
+    Back To Blog
+  </a>
+
+  <article class="animate-fade-in">
+    <BlogDetailHeader
+      tags={post.data.tags}
+      title={post.data.title}
+      description={post.data.description}
+      pubDate={post.data.pubDate}
+    />
+    <div
+      class="prose dark:prose-invert
+    prose-h1:font-bold prose-h1:text-xl
+    prose-a:text-blue-600 prose-p:text-justify prose-img:rounded-xl
+    prose-headings:underline"
+    >
+      <Content />
+    </div>
+  </article>
+</Layout>

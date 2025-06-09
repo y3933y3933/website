@@ -4,6 +4,7 @@ import clsx from "clsx";
 
 const navItems = [
   { name: "Home", path: "/" },
+  { name: "Blog", path: "/blog" },
   { name: "Work Experience", path: "/work-experience" },
   { name: "About", path: "/about" },
 ];
@@ -43,7 +44,11 @@ export default function NavMenu({ mobile = false }: Props) {
 
   return (
     <>
-      <button className="p-2 text-primary" onClick={() => setIsOpen(!isOpen)}>
+      <button
+        className="p-2 text-primary
+      "
+        onClick={() => setIsOpen(!isOpen)}
+      >
         {isOpen ? <X size={24} /> : <Menu size={24} />}
       </button>
 

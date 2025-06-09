@@ -3,13 +3,21 @@ import Layout from "../layouts/layout.astro";
 import HeroSection from "@/components/HeroSection";
 import { Image } from "astro:assets";
 import Cat from "../assets/images/cat.png";
+import { getCollection } from "astro:content";
+import { Button } from "@/components/ui/button";
+
+const posts = (await getCollection("posts"))
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+  .slice(0, 2);
 ---
 
 <Layout
   title="Home"
   description="傑尼安的個人網站，介紹個人經歷背景與軟體開發知識心得分享。"
 >
-  <div class="grid lg:grid-cols-2 gap-12 items-center">
+  <div
+    class="grid lg:grid-cols-2 gap-12 items-center pt-32 pb-20 px-4 container mx-auto max-w-6xl"
+  >
     <HeroSection />
     <div class="flex justify-center lg:justify-end animate-scale-in">
       <div class="relative">
@@ -33,5 +41,48 @@ import Cat from "../assets/images/cat.png";
         </div>
       </div>
     </div>
+  </div>
+
+  <div class="bg-secondary/30">
+    <section class="py-20 max-w-[760px] mx-auto">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-bold mb-4 text-primary">Latest posts</h2>
+      </div>
+      <div class="flex flex-col gap-y-8">
+        {
+          posts.map((post) => (
+            <a
+              href={`/blog/${post.id}`}
+              class="relative group flex flex-nowrap py-3 px-4 pr-10 rounded-lg border border-black/15 dark:border-white/20 hover:bg-black/5 dark:hover:bg-white/5 hover:text-black dark:hover:text-white transition-colors duration-300 ease-in-out "
+            >
+              <div class="flex flex-col flex-1 truncate gap-y-2">
+                <div class="font-semibold text-primary">{post.data.title}</div>
+                <div class="text-sm  text-primary">{post.data.description}</div>
+              </div>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                class="absolute top-1/2 right-2 -translate-y-1/2 size-5 stroke-2 fill-none stroke-current text-primary"
+              >
+                <line
+                  x1="5"
+                  y1="12"
+                  x2="19"
+                  y2="12"
+                  class="translate-x-3 group-hover:translate-x-0 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ease-in-out"
+                />
+                <polyline
+                  points="12 5 19 12 12 19"
+                  class="-translate-x-1 group-hover:translate-x-0 transition-transform duration-300 ease-in-out"
+                />
+              </svg>
+            </a>
+          ))
+        }
+        <a href="/blog" class="ml-auto">
+          <Button variant="link">See all posts</Button>
+        </a>
+      </div>
+    </section>
   </div>
 </Layout>

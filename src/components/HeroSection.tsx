@@ -32,7 +32,7 @@ export default function HeroSection() {
         </a>
 
         <a href="/contact">
-          <Button variant="outline" size="lg">
+          <Button variant="outline" size="lg" className="text-primary">
             Get In Touch
           </Button>
         </a>

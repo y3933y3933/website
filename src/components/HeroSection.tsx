@@ -30,12 +30,12 @@ export default function HeroSection() {
             <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
           </Button>
         </a>
-        {/* 
-              <Link to="/contact">
-                <Button variant="outline" size="lg">
-                  Get In Touch
-                </Button>
-              </Link> */}
+
+        <a href="/contact">
+          <Button variant="outline" size="lg">
+            Get In Touch
+          </Button>
+        </a>
       </div>
       {/* Social Links */}
       <div className="flex space-x-6 pt-4">

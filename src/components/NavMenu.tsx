@@ -7,6 +7,7 @@ const navItems = [
   { name: "Blog", path: "/blog" },
   { name: "Work Experience", path: "/work-experience" },
   { name: "About", path: "/about" },
+  { name: "Contact", path: "/contact" },
 ];
 
 interface Props {

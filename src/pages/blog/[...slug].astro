@@ -1,6 +1,7 @@
 ---
 import BlogDetailHeader from "@/components/BlogDetailHeader";
 import Layout from "@/layouts/layout.astro";
+import Prose from "@/layouts/prose.astro";
 import { getCollection, render } from "astro:content";
 import { ArrowLeft } from "lucide-react";
 
@@ -38,13 +39,8 @@ const { Content } = await render(post);
       description={post.data.description}
       pubDate={post.data.pubDate}
     />
-    <div
-      class="prose dark:prose-invert
-    prose-h1:font-bold prose-h1:text-xl
-    prose-a:text-blue-600 prose-p:text-justify prose-img:rounded-xl
-    prose-headings:underline"
-    >
+    <Prose>
       <Content />
-    </div>
+    </Prose>
   </article>
 </Layout>

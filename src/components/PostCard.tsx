@@ -18,7 +18,9 @@ export default function PostCard({ post }: { post: Post }) {
         //   style={{ animationDelay: `${index * 0.1}s` }}
       >
         <CardHeader>
-          <CardTitle className="line-clamp-2">{post.data.title}</CardTitle>
+          <CardTitle className="line-clamp-2 leading-8">
+            {post.data.title}
+          </CardTitle>
           <CardDescription className="line-clamp-3">
             {post.data.description}
           </CardDescription>

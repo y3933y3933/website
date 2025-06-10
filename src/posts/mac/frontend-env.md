@@ -5,7 +5,7 @@ tags: ["開發環境"]
 pubDate: 2024-05,01
 ---
 
-## [Oh My Zsh](https://ohmyz.sh/)
+## <a href="https://ohmyz.sh/" target="_blank">Oh My Zsh</a>
 
 Oh My Zsh 是一個管理 zsh 的擴充套件，打開終端機，輸入以下指令安裝 Oh My Zsh：
 
@@ -25,7 +25,7 @@ vim ~/.zshrc
 
 ---
 
-## [Homebrew](https://brew.sh/)
+## <a href="https://brew.sh/" target="_blank">Homebrew</a>
 
 Homebrew 是一個 macOS 上的開源套件管理系統，方便開發者安裝、更新套件。
 
@@ -89,7 +89,7 @@ brew install git
 
 ---
 
-## [VsCode](https://code.visualstudio.com/)
+## <a href="https://code.visualstudio.com/" target="_blank">VsCode</a>
 
 ### 設定 code . 快捷鍵
 

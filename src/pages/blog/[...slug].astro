@@ -5,6 +5,8 @@ import Prose from "@/layouts/prose.astro";
 import { getCollection, render } from "astro:content";
 import { ArrowLeft } from "lucide-react";
 import BackToTop from "@/components/BackToTop";
+import { getEntries } from "astro:content";
+import PostCard from "@/components/PostCard";
 
 export async function getStaticPaths() {
   const posts = await getCollection("posts");
@@ -17,6 +19,8 @@ export async function getStaticPaths() {
 
 const { post } = Astro.props;
 const { Content } = await render(post);
+
+const relatedPosts = await getEntries(post.data.relatedPosts || []);
 ---
 
 <Layout title={post.data.title} description={post.data.description}>
@@ -45,6 +49,19 @@ const { Content } = await render(post);
         <Content />
       </Prose>
     </article>
+    {
+      relatedPosts.length > 0 && (
+        <section class="mt-16 pt-8 border-t border-border">
+          <h2 class="text-2xl font-bold mb-6 text-primary">Related Posts</h2>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {relatedPosts.map((post) => (
+              <PostCard post={post} />
+            ))}
+          </div>
+        </section>
+      )
+    }
+
     <BackToTop client:load />
   </div>
 </Layout>

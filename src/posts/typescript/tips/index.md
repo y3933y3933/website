@@ -3,6 +3,8 @@ title: "TypeScript 物件型別常用技巧介紹 - Omit, Record, satisfies"
 description: "這篇文章帶你掌握 3 個 TypeScript 物件型別常用技巧：Omit, Record, satisfies, as const，透過實際開發場景的範例，讓你少踩坑、多享受型別安全帶來的好處。"
 tags: ["TypeScript"]
 pubDate: 2025-06-10
+relatedPosts:
+  - typescript/discriminated-union
 ---
 
 ## Omit：拿掉不想要的欄位

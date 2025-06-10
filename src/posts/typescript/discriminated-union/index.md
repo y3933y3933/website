@@ -3,6 +3,8 @@ title: "別再 if else：用 Discriminated Union 精準控制型別邏輯"
 description: "本篇文章介紹 TypeScript 中的 Discriminated Union，並透過實例說明如何用它優雅地取代 if-else 判斷，讓型別幫你寫邏輯、降低錯誤風險、提升維護性。"
 tags: ["TypeScript"]
 pubDate: 2025-06-10
+relatedPosts:
+  - typescript/tips
 ---
 
 ## 情境

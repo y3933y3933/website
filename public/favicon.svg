@@ -1,9 +1,74 @@
-<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 128 128">
-    <path d="M50.4 78.5a75.1 75.1 0 0 0-28.5 6.9l24.2-65.7c.7-2 1.9-3.2 3.4-3.2h29c1.5 0 2.7 1.2 3.4 3.2l24.2 65.7s-11.6-7-28.5-7L67 45.5c-.4-1.7-1.6-2.8-2.9-2.8-1.3 0-2.5 1.1-2.9 2.7L50.4 78.5Zm-1.1 28.2Zm-4.2-20.2c-2 6.6-.6 15.8 4.2 20.2a17.5 17.5 0 0 1 .2-.7 5.5 5.5 0 0 1 5.7-4.5c2.8.1 4.3 1.5 4.7 4.7.2 1.1.2 2.3.2 3.5v.4c0 2.7.7 5.2 2.2 7.4a13 13 0 0 0 5.7 4.9v-.3l-.2-.3c-1.8-5.6-.5-9.5 4.4-12.8l1.5-1a73 73 0 0 0 3.2-2.2 16 16 0 0 0 6.8-11.4c.3-2 .1-4-.6-6l-.8.6-1.6 1a37 37 0 0 1-22.4 2.7c-5-.7-9.7-2-13.2-6.2Z" />
-    <style>
-        path { fill: #000; }
-        @media (prefers-color-scheme: dark) {
-            path { fill: #FFF; }
-        }
-    </style>
-</svg>
+<svg
+    version="1.0"
+    xmlns="http://www.w3.org/2000/svg"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    width="512"
+    height="512"
+    viewBox="0 0 512 512"
+  >
+    <svg id="global-svg-defs" version="1.0" xmlns="http://www.w3.org/2000/svg" width="0" height="0" viewBox="0 0 340.000000 250.000000" preserveAspectRatio="xMidYMid meet" color-interpolation-filters="sRGB" class="el-tooltip" style="margin: auto;" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <defs>
+      <pattern id="watermark" patternUnits="userSpaceOnUse" width="100%" height="100%">
+        <image xlink:href="https://www.logoai.com/img/watermark/LOGOAI-watermark.png" x="0" y="0" width="100%" height="100%">
+        </image>
+      </pattern>
+                    <linearGradient id="92" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stop-color="#fa71cd"></stop>
+          <stop offset="100%" stop-color="#9b59b6"></stop>
+        </linearGradient>
+              <linearGradient id="93" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stop-color="#f9d423"></stop>
+          <stop offset="100%" stop-color="#f83600"></stop>
+        </linearGradient>
+              <linearGradient id="94" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stop-color="#0064d2"></stop>
+          <stop offset="100%" stop-color="#1cb0f6"></stop>
+        </linearGradient>
+              <linearGradient id="95" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stop-color="#f00978"></stop>
+          <stop offset="100%" stop-color="#3f51b1"></stop>
+        </linearGradient>
+              <linearGradient id="96" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stop-color="#7873f5"></stop>
+          <stop offset="100%" stop-color="#ec77ab"></stop>
+        </linearGradient>
+              <linearGradient id="97" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stop-color="#f9d423"></stop>
+          <stop offset="100%" stop-color="#e14fad"></stop>
+        </linearGradient>
+              <linearGradient id="98" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stop-color="#009efd"></stop>
+          <stop offset="100%" stop-color="#2af598"></stop>
+        </linearGradient>
+              <linearGradient id="99" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stop-color="#ffcc00"></stop>
+          <stop offset="100%" stop-color="#00b140"></stop>
+        </linearGradient>
+              <linearGradient id="100" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stop-color="#d51007"></stop>
+          <stop offset="100%" stop-color="#ff8177"></stop>
+        </linearGradient>
+              <linearGradient id="102" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stop-color="#a2b6df"></stop>
+          <stop offset="100%" stop-color="#0c3483"></stop>
+        </linearGradient>
+              <linearGradient id="103" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stop-color="#7ac5d8"></stop>
+          <stop offset="100%" stop-color="#eea2a2"></stop>
+        </linearGradient>
+              <linearGradient id="104" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stop-color="#00ecbc"></stop>
+          <stop offset="100%" stop-color="#007adf"></stop>
+        </linearGradient>
+          </defs>
+  </svg>
+    <rect
+      x="0"
+      y="0"
+      width="100%"
+      height="100%"
+      fill="transparent"
+      fill-opacity="1"
+    ></rect>
+    <svg data-v-0dd9719b="" version="1.0" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100%" height="100%" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid meet" color-interpolation-filters="sRGB" style="margin: auto;"> <rect data-v-0dd9719b="" x="0" y="0" width="100%" height="100%" fill="#ffffff" fill-opacity="1" class="background" style="display: none;"/> <rect data-v-0dd9719b="" x="0" y="0" width="100%" height="100%" fill="url(#watermark)" fill-opacity="1" class="watermarklayer" style="display: none;"/> <g data-v-0dd9719b="" fill="#333" class="iconsvg-imagesvg"><rect fill="#333" fill-opacity="0" stroke-width="2" x="0" y="0" width="100" height="100" class="image-rect"/> <svg viewBox="0 0 60 60" x="0" y="0" width="100" height="100" class="image-svg-svg bn" style="overflow: visible;"><g hollow-target="iconBnFill" mask="url(#68dead6d-9509-41b5-b2dc-ae3bacc2b42b)"><g><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0" y="0" viewBox="2.5 2.5 95 95" enable-background="new 0 0 100 100" xml:space="preserve" style="overflow: visible;" width="60" height="60" filtersec="colorsb4844770412" filter="url(#ViCgUhKPj-Hu6-SC81ISd)"><g transform="scale(1, 1) skewX(0)"><g><path d="M50,6.5C26.014,6.5,6.5,26.014,6.5,50c0,23.986,19.514,43.5,43.5,43.5c23.986,0,43.5-19.514,43.5-43.5   C93.5,26.014,73.986,6.5,50,6.5z"/><path d="M50,2.5C23.767,2.5,2.5,23.767,2.5,50S23.767,97.5,50,97.5S97.5,76.233,97.5,50S76.233,2.5,50,2.5z M50,95.5   C24.911,95.5,4.5,75.089,4.5,50S24.911,4.5,50,4.5S95.5,24.911,95.5,50S75.089,95.5,50,95.5z"/></g></g><defs><filter id="ViCgUhKPj-Hu6-SC81ISd"><feColorMatrix type="matrix" values="0 0 0 0 0.19921875  0 0 0 0 0.19921875  0 0 0 0 0.19921875  0 0 0 1 0"/></filter></defs></svg></g> <g filter="url(#colors8627820737)"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 30.456000000000003 61.92000000000001" width="45" height="45" x="7.5" y="7.5" class="image-svg-letter"><path transform="translate(2.3040000000000003 50.400000000000006)" d="M9.36-48.31L9.79-50.40L28.15-50.40L27.79-48.31Q26.35-47.66 24.70-47.23Q23.04-46.80 21.60-46.51L21.60-46.51L13.10-6.19Q12.02-1.22 10.19 2.02Q8.35 5.26 6.23 7.24Q4.10 9.22 1.98 10.19Q-0.14 11.16-1.80 11.52L-1.80 11.52L-2.30 10.44Q-0.86 9.29 0.32 8.10Q1.51 6.91 2.52 5.15Q3.53 3.38 4.39 0.86Q5.26-1.66 6.05-5.40L6.05-5.40L14.69-46.51Q11.59-47.23 9.36-48.31L9.36-48.31Z"/></svg></g></g><mask id="68dead6d-9509-41b5-b2dc-ae3bacc2b42b"><g fill="white"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0" y="0" viewBox="2.5 2.5 95 95" enable-background="new 0 0 100 100" xml:space="preserve" style="overflow: visible;" width="60" height="60" filtersec="colorsb4844770412"><g transform="scale(1, 1) skewX(0)"><g><path d="M50,6.5C26.014,6.5,6.5,26.014,6.5,50c0,23.986,19.514,43.5,43.5,43.5c23.986,0,43.5-19.514,43.5-43.5   C93.5,26.014,73.986,6.5,50,6.5z"/><path d="M50,2.5C23.767,2.5,2.5,23.767,2.5,50S23.767,97.5,50,97.5S97.5,76.233,97.5,50S76.233,2.5,50,2.5z M50,95.5   C24.911,95.5,4.5,75.089,4.5,50S24.911,4.5,50,4.5S95.5,24.911,95.5,50S75.089,95.5,50,95.5z"/></g></g><defs/></svg></g> <g fill="black"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 30.456000000000003 61.92000000000001" width="45" height="45" x="7.5" y="7.5" class="image-svg-letter"><path transform="translate(2.3040000000000003 50.400000000000006)" d="M9.36-48.31L9.79-50.40L28.15-50.40L27.79-48.31Q26.35-47.66 24.70-47.23Q23.04-46.80 21.60-46.51L21.60-46.51L13.10-6.19Q12.02-1.22 10.19 2.02Q8.35 5.26 6.23 7.24Q4.10 9.22 1.98 10.19Q-0.14 11.16-1.80 11.52L-1.80 11.52L-2.30 10.44Q-0.86 9.29 0.32 8.10Q1.51 6.91 2.52 5.15Q3.53 3.38 4.39 0.86Q5.26-1.66 6.05-5.40L6.05-5.40L14.69-46.51Q11.59-47.23 9.36-48.31L9.36-48.31Z"/></svg></g></mask></svg> <defs><filter id="colors8627820737"><feColorMatrix type="matrix" values="0 0 0 0 0.19921875  0 0 0 0 0.19921875  0 0 0 0 0.19921875  0 0 0 1 0" class="icon-fecolormatrix"/></filter> <filter id="colorsf3562993993"><feColorMatrix type="matrix" values="0 0 0 0 0.99609375  0 0 0 0 0.99609375  0 0 0 0 0.99609375  0 0 0 1 0" class="icon-fecolormatrix"/></filter> <filter id="colorsb4844770412"><feColorMatrix type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 1 0" class="icon-fecolormatrix"/></filter></defs></g><defs v-gra="od"/></svg>
+  </svg>

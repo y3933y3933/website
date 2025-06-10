@@ -44,6 +44,7 @@ export default function HeroSection() {
           target="_blank"
           rel="noopener noreferrer"
           className="p-2 rounded-full text-primary bg-secondary hover:bg-primary hover:text-primary-foreground transition-colors duration-200"
+          aria-label="my github link"
         >
           <Github size={20} />
         </a>
@@ -52,12 +53,14 @@ export default function HeroSection() {
           target="_blank"
           rel="noopener noreferrer"
           className="p-2 rounded-full  text-primary bg-secondary hover:bg-primary hover:text-primary-foreground transition-colors duration-200"
+          aria-label="my linkedin link"
         >
           <Linkedin size={20} />
         </a>
         <a
           href={SOCIAL.email}
           className="p-2 rounded-full  text-primary bg-secondary hover:bg-primary hover:text-primary-foreground transition-colors duration-200"
+          aria-label="my email link"
         >
           <Mail size={20} />
         </a>

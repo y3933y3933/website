@@ -3,6 +3,7 @@ import { defineConfig } from "astro/config";
 import tailwindcss from "@tailwindcss/vite";
 
 import react from "@astrojs/react";
+import remarkToc from "remark-toc";
 
 // https://astro.build/config
 export default defineConfig({
@@ -13,7 +14,7 @@ export default defineConfig({
     shikiConfig: {
       theme: "everforest-dark",
     },
+    remarkPlugins: [[remarkToc, { heading: "toc", maxDepth: 3 }]],
   },
-
   integrations: [react()],
 });

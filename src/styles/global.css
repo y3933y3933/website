@@ -63,3 +63,21 @@
     @slot;
   }
 }
+
+/* TOC style  */
+.prose h2 + ul a {
+  text-decoration: none;
+  color: #475569;
+  background-image: none;
+}
+
+.prose h2 + ul a:hover {
+  color: #2563eb;
+  background: none;
+}
+
+.prose h2,
+.prose h3,
+.prose h4 {
+  scroll-margin-top: 100px;
+}

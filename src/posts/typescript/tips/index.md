@@ -7,6 +7,8 @@ relatedPosts:
   - typescript/discriminated-union
 ---
 
+## toc
+
 ## Omit：拿掉不想要的欄位
 
 `Omit<Type, Keys>` 是 <a href="https://www.typescriptlang.org/docs/handbook/utility-types.html#omittype-keys" target="_blank">TypeScript Utility Types</a>其中之一

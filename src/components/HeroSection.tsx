@@ -31,9 +31,9 @@ export default function HeroSection() {
           </Button>
         </a>
 
-        <a href="/contact">
+        <a href="/cv.pdf" download="Chiao-An Lin Frontend Developer">
           <Button variant="outline" size="lg" className="text-primary">
-            Get In Touch
+            Download CV
           </Button>
         </a>
       </div>

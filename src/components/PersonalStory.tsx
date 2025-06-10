@@ -19,7 +19,10 @@ export default function PersonalStory() {
 
         <div className="flex flex-wrap gap-2">
           {HASHTAGS.map((tag) => (
-            <span className="inline-block px-2 py-1 text-sm font-medium rounded-full bg-muted text-muted-foreground hover:bg-accent hover:text-accent-foreground transition">
+            <span
+              key={tag}
+              className="inline-block px-2 py-1 text-sm font-medium rounded-full bg-muted text-muted-foreground hover:bg-accent hover:text-accent-foreground transition"
+            >
               #{tag}
             </span>
           ))}

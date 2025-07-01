@@ -16,12 +16,12 @@ export default function AngularIcon({ className }: { className?: string }) {
         gradientTransform="matrix(1 0 0 -1 0 130)"
         gradientUnits="userSpaceOnUse"
       >
-        <stop offset="0" stop-color="#e40035" />
-        <stop offset=".24" stop-color="#f60a48" />
-        <stop offset=".352" stop-color="#f20755" />
-        <stop offset=".494" stop-color="#dc087d" />
-        <stop offset=".745" stop-color="#9717e7" />
-        <stop offset="1" stop-color="#6c00f5" />
+        <stop offset="0" stopColor="#e40035" />
+        <stop offset=".24" stopColor="#f60a48" />
+        <stop offset=".352" stopColor="#f20755" />
+        <stop offset=".494" stopColor="#dc087d" />
+        <stop offset=".745" stopColor="#9717e7" />
+        <stop offset="1" stopColor="#6c00f5" />
       </linearGradient>
       <path
         fill="url(#deviconAngular0)"
@@ -36,8 +36,8 @@ export default function AngularIcon({ className }: { className?: string }) {
         gradientTransform="matrix(1 0 0 -1 0 130)"
         gradientUnits="userSpaceOnUse"
       >
-        <stop offset="0" stop-color="#ff31d9" />
-        <stop offset="1" stop-color="#ff5be1" stop-opacity="0" />
+        <stop offset="0" stopColor="#ff31d9" />
+        <stop offset="1" stopColor="#ff5be1" stop-opacity="0" />
       </linearGradient>
       <path
         fill="url(#deviconAngular1)"

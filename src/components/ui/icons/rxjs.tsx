@@ -17,10 +17,10 @@ export default function RxJSIcon({ className }: { className?: string }) {
           gradientTransform="translate(-7.564 -7.544)scale(.50472)"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset="0" stop-color="#df1c84" />
-          <stop offset=".401" stop-color="#de1c85" />
-          <stop offset=".77" stop-color="#932c86" />
-          <stop offset="1" stop-color="#5c2f87" />
+          <stop offset="0" stopColor="#df1c84" />
+          <stop offset=".401" stopColor="#de1c85" />
+          <stop offset=".77" stopColor="#932c86" />
+          <stop offset="1" stopColor="#5c2f87" />
         </linearGradient>
         <linearGradient
           id="deviconRxjs1"
@@ -31,10 +31,10 @@ export default function RxJSIcon({ className }: { className?: string }) {
           gradientTransform="translate(-7.564 -7.544)scale(.50472)"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset="0" stop-color="#df1c84" />
-          <stop offset=".238" stop-color="#d91e85" />
-          <stop offset=".658" stop-color="#c72085" />
-          <stop offset=".999" stop-color="#b42184" />
+          <stop offset="0" stopColor="#df1c84" />
+          <stop offset=".238" stopColor="#d91e85" />
+          <stop offset=".658" stopColor="#c72085" />
+          <stop offset=".999" stopColor="#b42184" />
         </linearGradient>
         <radialGradient
           id="deviconRxjs2"
@@ -44,14 +44,14 @@ export default function RxJSIcon({ className }: { className?: string }) {
           gradientTransform="matrix(.50472 .0012 -.001 .42204 -7.483 -1.141)"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset="0" stop-color="#df1c84" />
-          <stop offset=".139" stop-color="#de1e85" />
-          <stop offset=".285" stop-color="#d62085" />
-          <stop offset=".434" stop-color="#c82286" />
-          <stop offset=".586" stop-color="#b72786" />
-          <stop offset=".739" stop-color="#9c2a86" />
-          <stop offset=".891" stop-color="#7c2e87" />
-          <stop offset="1" stop-color="#5c2f87" />
+          <stop offset="0" stopColor="#df1c84" />
+          <stop offset=".139" stopColor="#de1e85" />
+          <stop offset=".285" stopColor="#d62085" />
+          <stop offset=".434" stopColor="#c82286" />
+          <stop offset=".586" stopColor="#b72786" />
+          <stop offset=".739" stopColor="#9c2a86" />
+          <stop offset=".891" stopColor="#7c2e87" />
+          <stop offset="1" stopColor="#5c2f87" />
         </radialGradient>
       </defs>
       <path

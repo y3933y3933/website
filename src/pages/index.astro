@@ -5,10 +5,9 @@ import { Image } from "astro:assets";
 import Cat from "../assets/images/cat.png";
 import { getCollection } from "astro:content";
 import { Button } from "@/components/ui/button";
+import { getAllPosts } from "@/lib/posts";
 
-const posts = (await getCollection("posts"))
-  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
-  .slice(0, 3);
+const posts = (await getAllPosts()).slice(0, 3);
 ---
 
 <Layout
@@ -79,7 +78,7 @@ const posts = (await getCollection("posts"))
             </a>
           ))
         }
-        <a href="/blog" class="ml-auto">
+        <a href="/blog/1" class="ml-auto">
           <Button variant="link">See all posts</Button>
         </a>
       </div>

@@ -1,0 +1,89 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "@/layouts/layout.astro";
+import PostCard from "@/components/PostCard";
+
+// React pagination components
+import {
+  Pagination,
+  PaginationContent,
+  PaginationItem,
+  PaginationLink,
+  PaginationPrevious,
+  PaginationNext,
+  PaginationEllipsis,
+} from "@/components/ui/pagination";
+
+import { getAllPosts } from "@/lib/posts";
+import type {
+  InferGetStaticParamsType,
+  InferGetStaticPropsType,
+  GetStaticPaths,
+} from "astro";
+import { getPageRange } from "@/lib/page";
+
+type Props = InferGetStaticPropsType<typeof getStaticPaths>;
+
+const { page } = Astro.props;
+
+const pageRange = getPageRange(page.currentPage, page.lastPage);
+
+export const getStaticPaths = (async ({ paginate }) => {
+  const posts = await getAllPosts();
+
+  return paginate(posts, { pageSize: 6 });
+}) satisfies GetStaticPaths;
+---
+
+<Layout title="Blog" description="傑尼安的技術文章">
+  <section class="pt-32 pb-20 px-4 container mx-auto max-w-6xl">
+    <div class="text-center mb-12">
+      <h1 class="text-4xl font-bold mb-4 text-primary">Blog</h1>
+    </div>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {page.data.map((post) => <PostCard post={post} />)}
+    </div>
+
+    <div class="mt-12">
+      <Pagination>
+        <PaginationContent>
+          {
+            page.currentPage > 1 && (
+              <PaginationItem>
+                <PaginationPrevious href={`/blog/${page.currentPage - 1}`} />
+              </PaginationItem>
+            )
+          }
+
+          {
+            pageRange.map((p) =>
+              p === -1 ? (
+                <PaginationItem>
+                  <PaginationEllipsis />
+                </PaginationItem>
+              ) : (
+                <PaginationItem>
+                  <PaginationLink
+                    href={`/blog/${p}`}
+                    isActive={p === page.currentPage}
+                  >
+                    {p}
+                  </PaginationLink>
+                </PaginationItem>
+              )
+            )
+          }
+
+          {
+            page.currentPage < page.lastPage && (
+              <PaginationItem>
+                <PaginationNext href={`/blog/${page.currentPage + 1}`} />
+              </PaginationItem>
+            )
+          }
+        </PaginationContent>
+      </Pagination>
+    </div>
+  </section>
+</Layout>

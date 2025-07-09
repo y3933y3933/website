@@ -31,7 +31,7 @@ const pageRange = getPageRange(page.currentPage, page.lastPage);
 export const getStaticPaths = (async ({ paginate }) => {
   const posts = await getAllPosts();
 
-  return paginate(posts, { pageSize: 6 });
+  return paginate(posts, { pageSize: 2 });
 }) satisfies GetStaticPaths;
 ---
 

@@ -1,7 +1,9 @@
 ---
 import Layout from "../../layouts/Layout.astro";
-import Tag from "../../components/Tag.astro";
 import { getCollection, render } from "astro:content";
+import H2 from "../../components/typography/H2.astro";
+import Paragraph from "../../components/typography/Paragraph.astro";
+import InlineCode from "../../components/typography/InlineCode.astro";
 
 export async function getStaticPaths() {
   const posts = await getCollection("blog");
@@ -31,6 +33,6 @@ function formatDate(date: Date) {
     {post.data.tags.map((tag) => <a href="/tags">#{tag}</a>)}
   </p>
   <div class="mt-4">
-    <Content />
+    <Content components={{ h2: H2, p: Paragraph, code: InlineCode }} />
   </div>
 </Layout>

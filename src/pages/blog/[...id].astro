@@ -1,0 +1,36 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Tag from "../../components/Tag.astro";
+import { getCollection, render } from "astro:content";
+
+export async function getStaticPaths() {
+  const posts = await getCollection("blog");
+  return posts.map((post) => ({
+    params: { id: post.id },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+
+function formatDate(date: Date) {
+  return date.toLocaleDateString("en-US", {
+    month: "long",
+    day: "numeric",
+    year: "numeric",
+  });
+}
+---
+
+<Layout>
+  <h1 class="text-4xl font-semibold tracking-tight">{post.data.title}</h1>
+  <p class="text-slate-500 text-sm flex gap-x-2 mt-3">
+    <time>{formatDate(post.data.pubDate)}</time>
+    <span>•</span>
+    {post.data.tags.map((tag) => <a href="/tags">#{tag}</a>)}
+  </p>
+  <div class="mt-4">
+    <Content />
+  </div>
+</Layout>

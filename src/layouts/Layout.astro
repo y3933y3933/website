@@ -19,16 +19,12 @@ import Header from "../components/Header.astro";
         class="bg-[#fafafa] rounded-2xl shadow-sm flex flex-col min-h-[calc(100vh-4rem)] overflow-hidden"
       >
         <Header />
-        <!-- <header class="sticky top-0 z-10 border-b border-slate-200 bg-white">
-          header
-        </header> -->
-        <main class="flex-1">
+        <main class="flex-1 py-6 px-8">
           <slot />
         </main>
         <footer class="border-t border-slate-200 py-4 px-8">
           &copy; 2026 Joanne Lin
         </footer>
-        <!-- <slot /> -->
       </div>
     </div>
   </body>

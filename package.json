@@ -20,6 +20,7 @@
     "astro": "^6.3.3",
     "react": "^19.2.6",
     "react-dom": "^19.2.6",
+    "remark-custom-heading-id": "^2.0.0",
     "tailwindcss": "^4.3.0"
   }
 }

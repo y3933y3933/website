@@ -9,10 +9,13 @@ import tailwindcss from '@tailwindcss/vite';
 
 import remarkCustomHeadingId from 'remark-custom-heading-id';
 
+import sitemap from '@astrojs/sitemap';
+
 
 // https://astro.build/config
 export default defineConfig({
-  integrations: [react(), mdx()],
+  site: "https://example.com",
+  integrations: [react(), mdx(), sitemap()],
 
   vite: {
     plugins: [tailwindcss()]

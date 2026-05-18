@@ -10,6 +10,7 @@ import Li from "../../components/typography/Li.astro";
 import Thread from "../../components/shareButtons/Thread.astro";
 import Linkedin from "../../components/shareButtons/Linkedin.astro";
 import ShareButton from "../../components/shareButtons/ShareButton.astro";
+import TableOfContents from "../../components/TableOfContents";
 
 export async function getStaticPaths() {
   const posts = await getCollection("blog");
@@ -38,14 +39,30 @@ function formatDate(date: Date) {
     <span>•</span>
     {post.data.tags.map((tag) => <a href="/tags">#{tag}</a>)}
   </p>
-  <div class="mt-4">
-    <Content components={{ h2: H2, p: Paragraph, code: InlineCode, a: ExternalLink, ul: Ul, li: Li }} />
-  </div>
-  <div class="border-border mt-8 border-t pt-8"></div>
-  <div class="flex items-center gap-x-3 mb-3">
-    <span class="text-sm text-muted-foreground">Share</span>
-    <Thread url={Astro.url.href} title={post.data.title} />
-    <Linkedin url={Astro.url.href} />
-    <ShareButton url={Astro.url.href} title={post.data.title} />
+  <div class="flex gap-8 mt-4">
+    <article class="flex-1 min-w-0">
+      <Content
+        components={{
+          h2: H2,
+          p: Paragraph,
+          code: InlineCode,
+          a: ExternalLink,
+          ul: Ul,
+          li: Li,
+        }}
+      />
+      <div class="border-border mt-8 border-t pt-8"></div>
+      <div class="flex items-center gap-x-3 mb-3">
+        <span class="text-sm text-muted-foreground">Share</span>
+        <Thread url={Astro.url.href} title={post.data.title} />
+        <Linkedin url={Astro.url.href} />
+        <ShareButton url={Astro.url.href} title={post.data.title} />
+      </div>
+    </article>
+    <aside class="hidden lg:block w-56 shrink-0">
+      <div class="sticky top-24">
+        <TableOfContents client:load />
+      </div>
+    </aside>
   </div>
 </Layout>

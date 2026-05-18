@@ -9,4 +9,7 @@
   --color-border:oklch(92.2% 0 0);
   --color-muted-foreground: oklch(55.6% 0 0);
   --color-accent:oklch(97% 0 0);
+
+  --breakpoint-lg: 67.5rem;
+
 }

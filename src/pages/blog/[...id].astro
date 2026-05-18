@@ -11,6 +11,7 @@ import Thread from "../../components/shareButtons/Thread.astro";
 import Linkedin from "../../components/shareButtons/Linkedin.astro";
 import ShareButton from "../../components/shareButtons/ShareButton.astro";
 import TableOfContents from "../../components/TableOfContents";
+import ReadingProgressBar from "../../components/ReadingProgressBar";
 import { formatDate } from "../../helper/date";
 
 export async function getStaticPaths() {
@@ -26,6 +27,7 @@ const { Content } = await render(post);
 ---
 
 <Layout>
+  <ReadingProgressBar client:load />
   <h1 class="text-4xl font-semibold tracking-tight">{post.data.title}</h1>
   <p class="text-slate-500 text-sm flex gap-x-2 mt-3">
     <time>{formatDate(post.data.pubDate)}</time>

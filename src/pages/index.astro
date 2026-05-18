@@ -2,6 +2,24 @@
 import { Image } from "astro:assets";
 import Layout from "../layouts/Layout.astro";
 import avatar from "../assets/avatar.avif";
+
+const workExperience = [
+  {
+    company: "Photon Future",
+    title: "Backend Engineer",
+    period: "2025/08 — Present",
+  },
+  {
+    company: "OneClass",
+    title: "Senior Frontend Engineer",
+    period: "2023/11 — 2024/10",
+  },
+  {
+    company: "Duotify",
+    title: "Frontend Engineer",
+    period: "2020/08 — 2024/10",
+  },
+];
 ---
 
 <Layout>
@@ -19,5 +37,34 @@ import avatar from "../assets/avatar.avif";
       </p>
     </section>
     <Image src={avatar} alt="avatar" class="hidden md:block" />
+  </div>
+
+  <div class="flex items-center gap-4">
+    <div class="h-px flex-1 bg-slate-200"></div>
+    <h2
+      class="text-muted-foreground text-xs font-medium tracking-widest uppercase"
+    >
+      工作經歷
+    </h2>
+    <div class="h-px flex-1 bg-slate-200"></div>
+  </div>
+  <div class="relative mt-8 ml-1.25 pl-7">
+    <div class="absolute top-7.75 bottom-0 left-0 w-px bg-[#ddd]"></div>
+    {
+      workExperience.map((job, i) => (
+        <div class={`relative mb-3`}>
+          <div class="absolute top-6.25 -left-8.5 size-3 rounded-full bg-[#ffd9a3]" />
+          <div class="border border-slate-200 flex flex-col rounded-lg bg-white px-5 py-4 shadow-xs md:flex-row md:items-baseline md:justify-between">
+            <div>
+              <div class="text-lg font-bold text-heading">{job.title}</div>
+              <div class="text-muted-foreground text-sm">{job.company}</div>
+            </div>
+            <div class="text-muted-foreground mt-1 text-sm whitespace-nowrap md:mt-0">
+              {job.period}
+            </div>
+          </div>
+        </div>
+      ))
+    }
   </div>
 </Layout>

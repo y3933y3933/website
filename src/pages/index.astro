@@ -1,8 +1,23 @@
 ---
+import { Image } from "astro:assets";
 import Layout from "../layouts/Layout.astro";
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import avatar from "../assets/avatar.avif";
 ---
 
-<Layout> Home </Layout>
+<Layout>
+  <div class="grid grid-cols-3 gap-x-4">
+    <section class="py-12 col-span-2">
+      <p
+        class="text-sm font-medium text-muted-foreground uppercase tracking-widest mb-3"
+      >
+        Backend Engineer
+      </p>
+      <h1 class="text-4xl font-bold text-heading leading-tight mb-4">傑尼安</h1>
+      <p class="text-body text-lg leading-relaxed mb-8">
+        曾當過 4 年的前端工程師，現職為 Golang 後端工程師，兼職寶可夢訓練師。
+        在還沒有被 AI 浪潮打死之前苟延殘喘中。
+      </p>
+    </section>
+    <Image src={avatar} alt="avatar" />
+  </div>
+</Layout>

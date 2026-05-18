@@ -10,6 +10,7 @@ import tailwindcss from '@tailwindcss/vite';
 import remarkCustomHeadingId from 'remark-custom-heading-id';
 
 import sitemap from '@astrojs/sitemap';
+import cloudflare from '@astrojs/cloudflare';
 
 
 // https://astro.build/config
@@ -22,5 +23,6 @@ export default defineConfig({
   },
   markdown:{
     remarkPlugins: [remarkCustomHeadingId]
-  }
+  },
+  adapter: cloudflare(),
 });

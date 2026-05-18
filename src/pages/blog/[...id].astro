@@ -4,6 +4,9 @@ import { getCollection, render } from "astro:content";
 import H2 from "../../components/typography/H2.astro";
 import Paragraph from "../../components/typography/Paragraph.astro";
 import InlineCode from "../../components/typography/InlineCode.astro";
+import Thread from "../../components/shareButtons/Thread.astro";
+import Linkedin from "../../components/shareButtons/Linkedin.astro";
+import ShareButton from "../../components/shareButtons/ShareButton.astro";
 
 export async function getStaticPaths() {
   const posts = await getCollection("blog");
@@ -34,5 +37,12 @@ function formatDate(date: Date) {
   </p>
   <div class="mt-4">
     <Content components={{ h2: H2, p: Paragraph, code: InlineCode }} />
+  </div>
+  <div class="border-border mt-8 border-t pt-8"></div>
+  <div class="flex items-center gap-x-3 mb-3">
+    <span class="text-sm text-muted-foreground">Share</span>
+    <Thread url={Astro.url.href} title={post.data.title} />
+    <Linkedin url={Astro.url.href} />
+    <ShareButton url={Astro.url.href} title={post.data.title} />
   </div>
 </Layout>

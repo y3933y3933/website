@@ -3,7 +3,7 @@ const { id } = Astro.props;
 const href = id ? `#${id}` : undefined;
 ---
 
-<h2 id={id} class="text-3xl font-semibold tracking-wide text-heading my-6 flex items-center gap-x-2 group">
+<h2 id={id} class="text-3xl font-semibold tracking-wide text-heading my-6 flex items-center gap-x-2 group scroll-mt-24">
   <slot />
   {
     href && (

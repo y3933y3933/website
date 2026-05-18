@@ -5,6 +5,8 @@ import H2 from "../../components/typography/H2.astro";
 import Paragraph from "../../components/typography/Paragraph.astro";
 import InlineCode from "../../components/typography/InlineCode.astro";
 import ExternalLink from "../../components/typography/ExternalLink.astro";
+import Ul from "../../components/typography/Ul.astro";
+import Li from "../../components/typography/Li.astro";
 import Thread from "../../components/shareButtons/Thread.astro";
 import Linkedin from "../../components/shareButtons/Linkedin.astro";
 import ShareButton from "../../components/shareButtons/ShareButton.astro";
@@ -37,7 +39,7 @@ function formatDate(date: Date) {
     {post.data.tags.map((tag) => <a href="/tags">#{tag}</a>)}
   </p>
   <div class="mt-4">
-    <Content components={{ h2: H2, p: Paragraph, code: InlineCode, a: ExternalLink }} />
+    <Content components={{ h2: H2, p: Paragraph, code: InlineCode, a: ExternalLink, ul: Ul, li: Li }} />
   </div>
   <div class="border-border mt-8 border-t pt-8"></div>
   <div class="flex items-center gap-x-3 mb-3">

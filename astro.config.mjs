@@ -12,6 +12,9 @@ import remarkCustomHeadingId from 'remark-custom-heading-id';
 import sitemap from '@astrojs/sitemap';
 
 
+import cloudflare from '@astrojs/cloudflare';
+
+
 // https://astro.build/config
 export default defineConfig({
   site: "https://jienianan.com",
@@ -20,7 +23,10 @@ export default defineConfig({
   vite: {
     plugins: [tailwindcss()]
   },
+
   markdown:{
     remarkPlugins: [remarkCustomHeadingId]
   },
-   });
+
+  adapter: cloudflare()
+});

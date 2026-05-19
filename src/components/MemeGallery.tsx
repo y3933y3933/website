@@ -70,26 +70,30 @@ export default function MemeGallery({ memes, categories }: Props) {
 
       <dialog
         ref={dialogRef}
-        onClick={(e) => e.target === dialogRef.current && closeLightbox()}
         onKeyDown={(e) => e.key === "Escape" && setLightbox(null)}
-        className="fixed inset-0 m-0 w-screen h-screen max-w-none max-h-none flex items-center justify-center bg-transparent p-0 border-none backdrop:bg-black/70"
+        className="fixed inset-0 m-0 w-screen h-screen max-w-none max-h-none bg-transparent p-0 border-none backdrop:bg-black/70"
       >
-        {lightbox && (
-          <div className="relative">
-            <img
-              src={lightbox.src}
-              alt={lightbox.alt}
-              className="max-w-[90vw] max-h-[90vh] rounded-xl block"
-            />
-            <button
-              onClick={closeLightbox}
-              aria-label="關閉"
-              className="absolute top-2 right-2 bg-black/50 text-white rounded-full w-8 h-8 flex items-center justify-center hover:bg-black/70 cursor-pointer"
-            >
-              ✕
-            </button>
-          </div>
-        )}
+        <div
+          className="w-full h-full flex items-center justify-center"
+          onClick={(e) => e.target === e.currentTarget && closeLightbox()}
+        >
+          {lightbox && (
+            <div className="relative">
+              <img
+                src={lightbox.src}
+                alt={lightbox.alt}
+                className="max-w-[90vw] max-h-[90vh] rounded-xl block"
+              />
+              <button
+                onClick={closeLightbox}
+                aria-label="關閉"
+                className="absolute top-2 right-2 bg-black/50 text-white rounded-full w-8 h-8 flex items-center justify-center hover:bg-black/70 cursor-pointer"
+              >
+                ✕
+              </button>
+            </div>
+          )}
+        </div>
       </dialog>
     </>
   )

@@ -22,7 +22,7 @@ const allBlogPosts = (await getCollection("blog")).sort(
     {
       allBlogPosts.map((post) => (
         <a
-          class="block rounded-lg bg-white px-5 py-4 shadow-xs transition-colors hover:bg-white/50 border-border "
+          class="block rounded-lg bg-white px-5 py-4 shadow-xs transition-colors hover:bg-white/50 border-border"
           href={`/blog/${post.id}`}
         >
           <div class="text-muted-foreground text-sm flex gap-x-2 mb-1">

@@ -24,6 +24,4 @@ export default defineConfig({
   markdown:{
     remarkPlugins: [remarkCustomHeadingId]
   },
-   adapter: cloudflare({
-    imageService: { build: 'compile', runtime: 'cloudflare-binding' }
-  }),});
+   });

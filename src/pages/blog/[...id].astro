@@ -1,6 +1,7 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import { getCollection, render } from "astro:content";
+import { Image } from "astro:assets";
 import H2 from "../../components/typography/H2.astro";
 import Paragraph from "../../components/typography/Paragraph.astro";
 import InlineCode from "../../components/typography/InlineCode.astro";
@@ -36,6 +37,15 @@ const { Content } = await render(post);
     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
     Back
   </a>
+  {post.data.cover && (
+    <Image
+      src={post.data.cover}
+      alt={post.data.title}
+      width={1200}
+      height={600}
+      class="rounded-lg object-cover w-full mb-6"
+    />
+  )}
   <h1 class="text-4xl font-semibold tracking-tight">{post.data.title}</h1>
   <p class="text-slate-500 text-sm flex gap-x-2 mt-3">
     <time>{formatDate(post.data.pubDate)}</time>

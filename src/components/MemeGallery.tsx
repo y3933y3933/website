@@ -72,7 +72,7 @@ export default function MemeGallery({ memes, categories }: Props) {
         ref={dialogRef}
         onClick={(e) => e.target === dialogRef.current && closeLightbox()}
         onKeyDown={(e) => e.key === "Escape" && setLightbox(null)}
-        className="backdrop:bg-black/70 p-0 rounded-xl bg-transparent max-w-[90vw] max-h-[90vh]"
+        className="fixed inset-0 m-0 w-screen h-screen max-w-none max-h-none flex items-center justify-center bg-transparent p-0 border-none backdrop:bg-black/70"
       >
         {lightbox && (
           <div className="relative">

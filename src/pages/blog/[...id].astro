@@ -11,6 +11,7 @@ import Li from "../../components/typography/Li.astro";
 import Thread from "../../components/shareButtons/Thread.astro";
 import Linkedin from "../../components/shareButtons/Linkedin.astro";
 import ShareButton from "../../components/shareButtons/ShareButton.astro";
+import GiscusComments from "../../components/GiscusComments";
 import TableOfContents from "../../components/TableOfContents";
 import ReadingProgressBar from "../../components/ReadingProgressBar";
 import { formatDate } from "../../helper/date";
@@ -70,6 +71,9 @@ const { Content } = await render(post);
         <Thread url={Astro.url.href} title={post.data.title} />
         <Linkedin url={Astro.url.href} />
         <ShareButton url={Astro.url.href} title={post.data.title} />
+      </div>
+      <div class="mt-8">
+        <GiscusComments client:load />
       </div>
     </article>
     <aside class="hidden lg:block w-56 shrink-0">

@@ -1,4 +1,4 @@
-import { useState, useRef } from "react"
+import { useState, useEffect } from "react"
 import type { Meme } from "../data/memes"
 
 type Props = {
@@ -9,19 +9,18 @@ type Props = {
 export default function MemeGallery({ memes, categories }: Props) {
   const [active, setActive] = useState<string | null>(null)
   const [lightbox, setLightbox] = useState<Meme | null>(null)
-  const dialogRef = useRef<HTMLDialogElement>(null)
 
   const filtered = active ? memes.filter((m) => m.category === active) : memes
 
-  const openLightbox = (meme: Meme) => {
-    setLightbox(meme)
-    dialogRef.current?.showModal()
-  }
+  const openLightbox = (meme: Meme) => setLightbox(meme)
+  const closeLightbox = () => setLightbox(null)
 
-  const closeLightbox = () => {
-    dialogRef.current?.close()
-    setLightbox(null)
-  }
+  useEffect(() => {
+    if (!lightbox) return
+    const onKey = (e: KeyboardEvent) => e.key === "Escape" && closeLightbox()
+    document.addEventListener("keydown", onKey)
+    return () => document.removeEventListener("keydown", onKey)
+  }, [lightbox])
 
   const btnBase = "px-3 py-1 rounded-full text-sm border transition-colors cursor-pointer"
   const btnActive = "bg-slate-900 text-white border-slate-900"
@@ -68,33 +67,27 @@ export default function MemeGallery({ memes, categories }: Props) {
         </div>
       )}
 
-      <dialog
-        ref={dialogRef}
-        onKeyDown={(e) => e.key === "Escape" && setLightbox(null)}
-        className="fixed inset-0 m-0 w-screen h-screen max-w-none max-h-none bg-transparent p-0 border-none backdrop:bg-black/70"
-      >
+      {lightbox && (
         <div
-          className="w-full h-full flex items-center justify-center"
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/70"
           onClick={(e) => e.target === e.currentTarget && closeLightbox()}
         >
-          {lightbox && (
-            <div className="relative">
-              <img
-                src={lightbox.src}
-                alt={lightbox.alt}
-                className="max-w-[90vw] max-h-[90vh] rounded-xl block"
-              />
-              <button
-                onClick={closeLightbox}
-                aria-label="關閉"
-                className="absolute top-2 right-2 bg-black/50 text-white rounded-full w-8 h-8 flex items-center justify-center hover:bg-black/70 cursor-pointer"
-              >
-                ✕
-              </button>
-            </div>
-          )}
+          <div className="relative">
+            <img
+              src={lightbox.src}
+              alt={lightbox.alt}
+              className="max-w-[90vw] max-h-[90vh] rounded-xl block"
+            />
+            <button
+              onClick={closeLightbox}
+              aria-label="關閉"
+              className="absolute top-2 right-2 bg-black/50 text-white rounded-full w-8 h-8 flex items-center justify-center hover:bg-black/70 cursor-pointer"
+            >
+              ✕
+            </button>
+          </div>
         </div>
-      </dialog>
+      )}
     </>
   )
 }

@@ -17,8 +17,9 @@ import cloudflare from '@astrojs/cloudflare';
 // https://astro.build/config
 export default defineConfig({
   site: "https://jienianan.com",
-  adapter: cloudflare({  imageService: 'cloudflare-binding', }),
-  integrations: [react(), mdx(), sitemap()],
+adapter: cloudflare({
+  imageService: { build: 'compile', runtime: 'cloudflare-binding' }
+}),  integrations: [react(), mdx(), sitemap()],
 
   vite: {
     plugins: [tailwindcss()]

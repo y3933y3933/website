@@ -12,7 +12,7 @@ const { pathname } = Astro.url;
       <!-- <div class="w-8 h-8 bg-slate-600 rounded-full"></div> -->
     </a>
     <nav>
-      <ul class="grid grid-cols-2 text-slate-500 gap-x-4">
+      <ul class="grid grid-cols-3 text-slate-500 gap-x-4">
         <li>
           <a
             href="/"
@@ -25,6 +25,14 @@ const { pathname } = Astro.url;
             class={pathname.startsWith("/blog")
               ? "text-slate-900 font-medium"
               : ""}>Blog</a
+          >
+        </li>
+        <li>
+          <a
+            href="/memes"
+            class={pathname.startsWith("/memes")
+              ? "text-slate-900 font-medium"
+              : ""}>梗圖</a
           >
         </li>
       </ul>

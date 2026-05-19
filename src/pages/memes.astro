@@ -1,0 +1,10 @@
+---
+import Layout from "../layouts/Layout.astro";
+import MemeGallery from "../components/MemeGallery";
+import { memes, categories } from "../data/memes";
+---
+
+<Layout title="梗圖" description="傑尼安的梗圖收藏">
+  <h1 class="text-2xl font-medium text-heading mb-6">梗圖</h1>
+  <MemeGallery client:load memes={memes} categories={categories} />
+</Layout>

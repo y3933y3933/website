@@ -9,10 +9,11 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "generate-types": "wrangler types"
   },
   "dependencies": {
-    "@astrojs/cloudflare": "^13.5.2",
+    "@astrojs/cloudflare": "^13.5.3",
     "@astrojs/mdx": "^5.0.6",
     "@astrojs/react": "^5.0.5",
     "@astrojs/sitemap": "^3.7.2",
@@ -25,7 +26,12 @@
     "react-dom": "^19.2.6",
     "remark-custom-heading-id": "^2.0.0",
     "sharp": "^0.34.5",
-    "tailwindcss": "^4.3.0",
+    "tailwindcss": "^4.3.0"
+  },
+  "devDependencies": {
     "wrangler": "^4.93.0"
+  },
+  "overrides": {
+    "vite": "^7"
   }
 }

@@ -11,6 +11,7 @@ import Li from "../../components/typography/Li.astro";
 import Thread from "../../components/shareButtons/Thread.astro";
 import Linkedin from "../../components/shareButtons/Linkedin.astro";
 import ShareButton from "../../components/shareButtons/ShareButton.astro";
+import { Dialogues, Line } from "../../components/Dialogues";
 import GiscusComments from "../../components/GiscusComments";
 import TableOfContents from "../../components/TableOfContents";
 import ReadingProgressBar from "../../components/ReadingProgressBar";
@@ -63,6 +64,8 @@ const { Content } = await render(post);
           a: ExternalLink,
           ul: Ul,
           li: Li,
+          Dialogues,
+          Line,
         }}
       />
       <div class="border-border mt-8 border-t pt-8"></div>

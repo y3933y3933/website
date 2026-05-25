@@ -1,0 +1,160 @@
+---
+title: 【後端 Junior 生存事件簿】這樣記 log 才有效！
+description: 本篇文章介紹後端新手常見記 log 所犯的錯誤以及優化 log 技巧。
+pubDate: 2026-05-21
+tags: ["後端開發"]
+cover: ./log-cover.png
+---
+
+<Dialogues title="工作對話">
+  <Line speaker="A" name="主管">
+    昨晚 production 有個 bug，客戶說不能下單，你幫忙查一下 log。
+  </Line>
+  <Line speaker="B" name="後端小明">
+    好的，我馬上看！
+  </Line>
+</Dialogues>
+
+打開 log，畫面長這樣：
+
+<br />
+```text title="production.log" 
+time=2026-05-02T12:01:00Z level=DEBUG msg="cache miss" key="user:1:profile" 
+time=2026-05-02T12:01:00Z level=DEBUG msg="DB query" sql="SELECT * FROM users WHERE id=?" duration=10ms 
+time=2026-05-02T12:01:00Z level=INFO msg="GET /api/users/1" status=200 duration=15ms
+time=2026-05-02T12:01:03Z level=INFO msg="Received POST /api/orders" user_id=5
+time=2026-05-02T12:01:03Z level=ERROR msg="Invalid email format" email="notanemail" status=400 
+time=2026-05-02T12:01:04Z level=ERROR msg="User not found" user_id=99 status=404 
+time=2026-05-02T12:01:05Z level=DEBUG msg="cache miss" key="user:2:profile" 
+time=2026-05-02T12:01:05Z level=DEBUG msg="DB query" sql="SELECT * FROM users WHERE id=?" duration=8ms
+time=2026-05-02T12:01:05Z level=WARN msg="DB query slow" sql="SELECT * FROM orders" duration=520ms 
+time=2026-05-02T12:01:05Z level=INFO msg="GET /api/users/2" status=200 duration=12ms 
+time=2026-05-02T12:01:07Z level=INFO msg="POST /api/orders" status=201 duration=230ms user_id=5
+time=2026-05-02T12:01:08Z level=INFO msg="User alice logged in"
+time=2026-05-02T12:01:08Z level=INFO msg="Fetching profile for alice"
+time=2026-05-02T12:01:09Z level=ERROR msg="Unauthorized" reason="token expired" status=401 
+time=2026-05-02T12:01:09Z level=ERROR msg="File not found"
+time=2026-05-02T12:01:10Z level=DEBUG msg="DB query" sql="SELECT * FROM products WHERE id=?" duration=7ms 
+time=2026-05-02T12:01:11Z level=ERROR msg="DB connection timeout" status=500 duration=3010ms 
+```
+
+眼花了嗎？這份 log 犯了 4 個常見的錯誤，我們一個一個來解。
+
+## 問題一：Production 環境有太多雜訊
+
+第一眼最明顯的問題：一堆 `DEBUG`。
+
+DEBUG level 是開發階段用來看除錯的，出現在 production 環境會讓資訊變得太雜落，而且會佔用額外的儲存空間。
+
+修法很簡單：**production 環境的 log level 設為 INFO**。
+
+
+```text title="production.log（移除 DEBUG 後）"
+time=2026-05-02T12:01:00Z level=INFO  msg="GET /api/users/1" status=200 duration=15ms
+time=2026-05-02T12:01:03Z level=INFO  msg="Received POST /api/orders" user_id=5
+time=2026-05-02T12:01:03Z level=ERROR msg="Invalid email format" email="notanemail" status=400
+time=2026-05-02T12:01:04Z level=ERROR msg="User not found" user_id=99 status=404
+time=2026-05-02T12:01:05Z level=WARN  msg="DB query slow" sql="SELECT * FROM orders" duration=520ms
+time=2026-05-02T12:01:05Z level=INFO  msg="GET /api/users/2" status=200 duration=12ms
+time=2026-05-02T12:01:07Z level=INFO  msg="POST /api/orders" status=201 duration=230ms user_id=5
+time=2026-05-02T12:01:08Z level=INFO  msg="User alice logged in"
+time=2026-05-02T12:01:08Z level=INFO  msg="Fetching profile for alice"
+time=2026-05-02T12:01:09Z level=ERROR msg="Unauthorized" reason="token expired" status=401
+time=2026-05-02T12:01:09Z level=ERROR msg="File not found"
+time=2026-05-02T12:01:11Z level=ERROR msg="DB connection timeout" status=500 duration=3010ms
+```
+
+調整完後行數總算有減少一下了，但問題還沒完。
+
+## 問題二：重複的 Log
+
+注意看這兩行：
+
+```text
+time=2026-05-02T12:01:03Z level=INFO  msg="Received POST /api/orders" user_id=5
+time=2026-05-02T12:01:07Z level=INFO  msg="POST /api/orders" status=201 duration=230ms user_id=5
+```
+
+同一個 request，記了兩次，一條可能是 handler 開始時記的，一條是結束時記的，可能是在 middleware 跟 handler 各記了一遍。
+
+重複的 log 沒有帶來額外資訊，只會讓 log 量加倍，建議把重複的壓縮成一條有足夠資訊量的 log 。
+
+```text title="production.log（移除重複 log 後）"
+time=2026-05-02T12:01:00Z level=INFO  msg="GET /api/users/1" status=200 duration=15ms
+time=2026-05-02T12:01:03Z level=ERROR msg="Invalid email format" email="notanemail" status=400
+time=2026-05-02T12:01:04Z level=ERROR msg="User not found" user_id=99 status=404
+time=2026-05-02T12:01:05Z level=WARN  msg="DB query slow" sql="SELECT * FROM orders" duration=520ms
+time=2026-05-02T12:01:05Z level=INFO  msg="GET /api/users/2" status=200 duration=12ms
+time=2026-05-02T12:01:07Z level=INFO  msg="POST /api/orders" status=201 duration=230ms user_id=5
+time=2026-05-02T12:01:08Z level=INFO  msg="User alice logged in"
+time=2026-05-02T12:01:08Z level=INFO  msg="Fetching profile for alice"
+time=2026-05-02T12:01:09Z level=ERROR msg="Unauthorized" reason="token expired" status=401
+time=2026-05-02T12:01:09Z level=ERROR msg="File not found"
+time=2026-05-02T12:01:11Z level=ERROR msg="DB connection timeout" status=500 duration=3010ms
+```
+
+## 問題三：INFO、WARN、ERROR 使用時機
+
+去除掉重複的 Log ，接著我們來看最關鍵的 `ERROR` 部分，卻發現 Invalid email format、User not found、Unauthorized 都被標示成 `ERROR`。
+
+這是新手很常犯的錯誤，把「使用者錯誤」標示成 `ERROR` ，但實際上它們不應該被視為錯誤，而應該被記為 `INFO` 並回 4xx 狀態碼。
+
+<Note> `WARN` 介於 `INFO` 和 `ERROR` 之間的灰色地帶，幾乎不太需要用到它，如果不是錯誤，就記為 `INFO` 或不記錄。</Note>
+
+
+```text title="production.log（修正 log level 後）"
+time=2026-05-02T12:01:00Z level=INFO  msg="GET /api/users/1" status=200 duration=15ms
+time=2026-05-02T12:01:03Z level=INFO  msg="Invalid email format" email="notanemail" status=400
+time=2026-05-02T12:01:04Z level=INFO  msg="User not found" user_id=99 status=404
+time=2026-05-02T12:01:05Z level=INFO  msg="GET /api/users/2" status=200 duration=12ms
+time=2026-05-02T12:01:07Z level=INFO  msg="POST /api/orders" status=201 duration=230ms user_id=5
+time=2026-05-02T12:01:08Z level=INFO  msg="User alice logged in"
+time=2026-05-02T12:01:08Z level=INFO  msg="Fetching profile for alice"
+time=2026-05-02T12:01:09Z level=INFO  msg="Unauthorized" reason="token expired" status=401
+time=2026-05-02T12:01:09Z level=ERROR msg="File not found"
+time=2026-05-02T12:01:11Z level=ERROR msg="DB connection timeout" status=500 duration=3010ms
+```
+
+整份 log 只剩兩個 ERROR，而且它們都是真的錯誤。
+
+## 問題四：同一個事件不要拆成多條 Log
+
+最後一個問題，也是最容易被忽略的。
+
+```text
+time=2026-05-02T12:01:08Z level=INFO  msg="User alice logged in"
+time=2026-05-02T12:01:08Z level=INFO  msg="Fetching profile for alice"
+time=2026-05-02T12:01:09Z level=ERROR msg="File not found"
+```
+
+這三條是同一個操作：alice 登入後，系統去撈她的 profile，然後 `File not found`。在低流量的情況下，它們剛好排在一起，看起來還好。
+
+但 production 同時有幾十個 request 在跑，實際的 log 可能長這樣：
+
+```text
+time=2026-05-02T12:01:08Z level=INFO  msg="User alice logged in"
+time=2026-05-02T12:01:08Z level=INFO  msg="GET /api/users/1" status=200 duration=15ms
+time=2026-05-02T12:01:08Z level=INFO  msg="Fetching profile for alice"
+time=2026-05-02T12:01:08Z level=INFO  msg="POST /api/orders" status=201 duration=230ms user_id=5
+time=2026-05-02T12:01:09Z level=INFO  msg="User bob logged in"
+time=2026-05-02T12:01:09Z level=INFO  msg="Fetching profile for bob"
+time=2026-05-02T12:01:09Z level=ERROR msg="File not found"
+```
+
+現在這個 `File not found` 是 alice 的還是 bob 的？完全不知道。
+
+解法是把同一事件的資訊**壓成一條 log**，把 context 都放在 fields 裡：
+
+```text
+time=2026-05-02T12:01:09Z level=ERROR msg="File not found" user="alice" action="fetch_profile" filename="alice_profile.json"
+```
+
+一條 log 包含完整的 context，不管旁邊插了多少其他 request，都能獨立判讀。
+
+## 總結
+
+- **Production 只留 INFO 以上**，DEBUG 不要帶進 production
+- **同一 request 只記一次**，避免重複 log 讓量加倍
+- **4xx 是使用者錯誤，記 INFO**；ERROR 留給系統真正壞掉的情況
+- **一個事件一條 log**，把 context 放在 fields 裡，concurrent request 也能獨立追查
+
